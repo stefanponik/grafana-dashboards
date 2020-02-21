@@ -4,3 +4,10 @@ This is experimental repos with random grafana dashboards currently and validati
 
 Feel free to clone it but no guarantees it wont change in strucrture and others. 
 
+
+## License
+
+MIT / BSD
+
+# Author Information
+Created on February 2020 by Stefan Ponik
