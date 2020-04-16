@@ -20,7 +20,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.2"
     },
     {
       "type": "panel",
@@ -36,6 +36,12 @@
     },
     {
       "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
       "id": "table",
       "name": "Table",
       "version": ""
@@ -44,6 +50,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:3670",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -59,7 +66,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1587045991141,
+  "iteration": 1587068685465,
   "links": [],
   "panels": [
     {
@@ -94,6 +101,9 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [
               {
                 "id": 0,
@@ -106,20 +116,22 @@
             "max": 0,
             "min": 0,
             "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
             "title": "Running Containers",
             "unit": "none"
           },
-          "override": {},
           "overrides": [],
           "values": false
         },
@@ -127,7 +139,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "alias": "Running Containers",
@@ -193,22 +205,27 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [],
             "max": 0,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
             "title": "Paused Containers"
           },
-          "override": {},
           "overrides": [],
           "values": false
         },
@@ -216,7 +233,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "groupBy": [
@@ -375,7 +392,6 @@
       },
       "id": 10,
       "interval": "",
-      "options": {},
       "pageSize": null,
       "showHeader": true,
       "sort": {
@@ -385,7 +401,7 @@
       "styles": [
         {
           "alias": "Time",
-          "align": "",
+          "align": "auto",
           "dateFormat": "MMMM D, YYYY LT",
           "link": false,
           "pattern": "Time",
@@ -801,23 +817,28 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [],
             "max": 0,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
             "title": "Stopped Containers",
             "unit": "none"
           },
-          "override": {},
           "overrides": [],
           "values": false
         },
@@ -825,7 +846,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "groupBy": [
@@ -907,6 +928,9 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [
               {
                 "id": 0,
@@ -919,20 +943,22 @@
             "max": 0,
             "min": 0,
             "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
             "title": "Host CPU Count",
             "unit": "none"
           },
-          "override": {},
           "overrides": [],
           "values": false
         },
@@ -940,7 +966,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "alias": "Host CPU Total",
@@ -1142,23 +1168,24 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [],
             "max": 0,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
             "title": "Host Memory ",
             "unit": "bytes"
           },
-          "override": {},
           "overrides": [],
           "values": false
         },
@@ -1166,7 +1193,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "groupBy": [
@@ -2026,7 +2053,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "docker",
@@ -2105,5 +2132,8 @@
   "timezone": "",
   "title": "Docker-Host-Overview",
   "uid": "BrZVkKCWz",
+  "variables": {
+    "list": []
+  },
   "version": 2
 }
