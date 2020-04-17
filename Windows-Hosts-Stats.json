@@ -72,11 +72,11 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1587127803460,
+  "iteration": 1587127803465,
   "links": [],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": "${DS_INFLUXDB-METRICSTORE}",
       "gridPos": {
         "h": 1,
@@ -86,7 +86,7 @@
       },
       "id": 24,
       "panels": [],
-      "title": "Row title",
+      "title": "Windows Stats",
       "type": "row"
     },
     {
@@ -3108,5 +3108,5 @@
   "timezone": "",
   "title": "Windows-Hosts-Stats",
   "uid": "tHpUtMqZk",
-  "version": 41
+  "version": 42
 }
