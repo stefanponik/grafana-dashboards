@@ -1,16 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUXDB-METRICSTORE",
-      "label": "influxdb-metricstore",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
-    },
-    {
-      "name": "DS_IDB-DEV-02",
-      "label": "IDB-DEV-02",
+      "name": "DS_INFLUXDB_IFACE_SNMP",
+      "label": "influxdb_iface_snmp",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
@@ -34,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.2"
     },
     {
       "type": "panel",
@@ -58,6 +50,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:73",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -72,12 +65,12 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1587462997638,
+  "iteration": 1587713897938,
   "links": [],
   "panels": [
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -91,7 +84,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -112,7 +105,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "decimals": 1,
       "format": "s",
       "gauge": {
@@ -145,7 +138,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -225,7 +217,7 @@
         "#37872D",
         "#C8F2C2"
       ],
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "format": "short",
       "gauge": {
         "maxValue": 100,
@@ -257,7 +249,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -335,7 +326,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -367,7 +358,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -445,7 +435,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "format": "short",
       "gauge": {
         "maxValue": 100,
@@ -477,7 +467,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -551,7 +540,7 @@
       "valueName": "current"
     },
     {
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 5,
         "w": 4,
@@ -565,33 +554,39 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [],
             "max": 100,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 80
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 80
+                },
+                {
+                  "color": "red",
+                  "value": 90
+                }
+              ]
+            },
             "unit": "percent"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "groupBy": [
@@ -623,7 +618,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -648,7 +643,7 @@
       "type": "gauge"
     },
     {
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 5,
         "w": 4,
@@ -662,33 +657,39 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [],
             "max": 24000000000,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "dark-red",
-                "value": null
-              },
-              {
-                "color": "semi-dark-orange",
-                "value": 1000000000
-              },
-              {
-                "color": "semi-dark-green",
-                "value": 2000000000
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                },
+                {
+                  "color": "semi-dark-orange",
+                  "value": 1000000000
+                },
+                {
+                  "color": "semi-dark-green",
+                  "value": 2000000000
+                }
+              ]
+            },
             "unit": "bytes"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
         "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "groupBy": [
@@ -753,7 +754,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -785,7 +786,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -837,7 +837,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               }
             ]
           ],
@@ -872,7 +872,7 @@
       "valueName": "avg"
     },
     {
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 5,
         "w": 6,
@@ -887,6 +887,9 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [
               {
                 "from": "",
@@ -900,21 +903,25 @@
             ],
             "max": 100,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "light-blue",
-                "value": null
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "light-blue",
+                  "value": null
+                }
+              ]
+            },
             "title": "",
             "unit": "percent"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "showUnfilled": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.2",
       "targets": [
         {
           "alias": "$tag_instance",
@@ -953,7 +960,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -979,7 +986,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -996,7 +1003,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -1064,7 +1071,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1082,7 +1089,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1100,7 +1107,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1118,7 +1125,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1136,7 +1143,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1154,7 +1161,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1222,7 +1229,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1239,7 +1246,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1315,7 +1322,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -1338,7 +1345,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Processor Time per Process",
+      "title": "Processor Time per Process xCPUs",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1377,7 +1384,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1394,7 +1401,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1456,7 +1463,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1474,7 +1481,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1492,7 +1499,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1563,7 +1570,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1625,7 +1632,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1643,7 +1650,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1661,7 +1668,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1679,7 +1686,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1697,7 +1704,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1765,7 +1772,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1782,7 +1789,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1816,6 +1823,7 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:1263",
           "alias": "/^.* TX$/",
           "transform": "negative-Y"
         }
@@ -1857,7 +1865,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -1914,7 +1922,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -1939,7 +1947,19 @@
           ]
         }
       ],
-      "thresholds": [],
+      "thresholds": [
+        {
+          "$$hashKey": "object:1306",
+          "colorMode": "custom",
+          "fill": false,
+          "fillColor": "rgba(50, 116, 217, 0.2)",
+          "line": true,
+          "lineColor": "rgb(232, 219, 219)",
+          "op": "gt",
+          "value": 0,
+          "yaxis": "left"
+        }
+      ],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
@@ -1959,6 +1979,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1276",
           "format": "Bps",
           "label": null,
           "logBase": 1,
@@ -1967,6 +1988,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1277",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1985,7 +2007,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2019,6 +2041,7 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:2022",
           "alias": "/^.* TX$/",
           "transform": "negative-Y"
         }
@@ -2060,7 +2083,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2117,7 +2140,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2142,7 +2165,19 @@
           ]
         }
       ],
-      "thresholds": [],
+      "thresholds": [
+        {
+          "$$hashKey": "object:2065",
+          "colorMode": "custom",
+          "fill": false,
+          "fillColor": "rgba(50, 116, 217, 0.2)",
+          "line": true,
+          "lineColor": "rgb(255, 255, 255)",
+          "op": "gt",
+          "value": 0,
+          "yaxis": "left"
+        }
+      ],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
@@ -2162,6 +2197,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:2035",
           "format": "pps",
           "label": null,
           "logBase": 1,
@@ -2170,6 +2206,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:2036",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2185,7 +2222,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2202,7 +2239,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 5,
       "fillGradient": 4,
       "gridPos": {
@@ -2271,7 +2308,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2289,7 +2326,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2360,7 +2397,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2435,7 +2472,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2453,7 +2490,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2530,7 +2567,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2605,7 +2642,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2673,7 +2710,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDB-METRICSTORE}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2690,7 +2727,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 3,
       "fillGradient": 5,
       "gridPos": {
@@ -2759,7 +2796,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2830,7 +2867,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_IDB-DEV-02}",
+      "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
       "fill": 3,
       "fillGradient": 5,
       "gridPos": {
@@ -2898,7 +2935,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               },
               {
                 "params": [
@@ -2966,7 +3003,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "windows",
@@ -2978,10 +3015,11 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_IDB-DEV-02}",
+        "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
         "definition": "SHOW TAG VALUES FROM \"win_system\" WITH KEY = \"host\"",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Windows-Hostname",
         "multi": false,
         "name": "win_hostname",
@@ -3000,10 +3038,11 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_IDB-DEV-02}",
+        "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
         "definition": "SHOW TAG VALUES FROM \"win_disk\" WITH KEY = \"instance\" WHERE host =~ /$win_hostname/",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Disk",
         "multi": true,
         "name": "disk",
@@ -3022,10 +3061,11 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_IDB-DEV-02}",
+        "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
         "definition": "SHOW TAG VALUES FROM \"win_proc\" WITH KEY = \"instance\" WHERE host =~ /$win_hostname/",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": "Process",
         "multi": false,
         "name": "process",
@@ -3044,10 +3084,11 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_IDB-DEV-02}",
+        "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
         "definition": "SHOW TAG VALUES FROM \"win_net\" WITH KEY = \"instance\" WHERE host =~ /$win_hostname/",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": "network",
         "multi": false,
         "name": "network",
@@ -3066,10 +3107,11 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_IDB-DEV-02}",
+        "datasource": "${DS_INFLUXDB_IFACE_SNMP}",
         "definition": "SHOW TAG VALUES FROM \"win_diskio\" WITH KEY = \"instance\" WHERE host =~ /$win_hostname/",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": "disk_io",
         "multi": false,
         "name": "disk_io",
@@ -3108,5 +3150,8 @@
   "timezone": "",
   "title": "Windows-Hosts-Stats",
   "uid": "tHpUtMqZk",
-  "version": 42
+  "variables": {
+    "list": []
+  },
+  "version": 4
 }
