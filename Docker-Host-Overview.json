@@ -50,7 +50,7 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:3670",
+        "$$hashKey": "object:189",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -66,7 +66,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1587068685465,
+  "iteration": 1587715067343,
   "links": [],
   "panels": [
     {
@@ -617,7 +617,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -660,7 +660,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -703,7 +703,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -746,7 +746,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -1098,7 +1098,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               }
             ]
           ],
@@ -1323,7 +1323,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -1462,7 +1462,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1517,7 +1517,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
@@ -1663,7 +1663,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -1795,7 +1795,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               }
             ]
           ],
@@ -1929,11 +1929,11 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "max"
               },
               {
                 "params": [
-                  "1s"
+                  "10s"
                 ],
                 "type": "derivative"
               }
@@ -2135,5 +2135,5 @@
   "variables": {
     "list": []
   },
-  "version": 2
+  "version": 4
 }
